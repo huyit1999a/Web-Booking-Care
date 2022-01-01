@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Display CRUD HuyIT</title>
+		<style>
+			table {
+				font-family: arial, sans-serif;
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			td,
+			th {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 8px;
+			}
+
+			tr:nth-child(even) {
+				background-color: #dddddd;
+			}
+			a {
+				text-decoration: none;
+			}
+			.btn-edit {
+				outline: none;
+				background-color: lightblue;
+				border: none;
+
+				width: 50px;
+				border-radius: 4px;
+				padding: 8px 4px;
+				display: inline-block;
+				text-align: center;
+			}
+			.btn-delete {
+				outline: none;
+				background-color: red;
+				border: none;
+
+				width: 50px;
+				padding: 8px 4px;
+				border-radius: 4px;
+				display: inline-block;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>Email</th>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Address</th>
+				<th>Action</th>
+			</tr>
+			<% for(var i=0; i < data.length; i++) { %>
+			<tr>
+				<td><%= data[i].email %></td>
+				<td><%= data[i].firstName %></td>
+				<td><%= data[i].lastName %></td>
+				<td><%= data[i].address %></td>
+				<td>
+					<a
+						href="/edit-crud?id=<%= data[i].id %>"
+						class="btn-edit"
+						type="button"
+						>Edit</a
+					>
+					<a
+						href="/delete-crud?id=<%= data[i].id %>"
+						class="btn-delete"
+						type="button"
+						>Delete</a
+					>
+				</td>
+			</tr>
+			<% } %>
+		</table>
+	</body>
+</html>
